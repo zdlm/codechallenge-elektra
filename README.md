@@ -45,3 +45,20 @@ The following requirements also have to be met:
 * The database is accessed using Spring JDBC
 * There is a `MessagesDAO` class that handles the interaction with the database.
 * The project build runs JUnit tests using Mockito for mock objects producing over 60% line coverage measured using Jacoco.
+
+
+## how does it works
+
+* run boot2docker
+* run export DOCKER_HOST=tcp://192.168.59.103:2376
+      export DOCKER_CERT_PATH=/Users/zhangleo/.boot2docker/certs/boot2docker-vm
+      export DOCKER_TLS_VERIFY=1
+* cd codechallenge-elektra/postgres-database
+* docker build -t postgres .
+* docker run --name="postgres" -p 5432:5432 postgres
+* cd codechallenge-elektra/code-challenge
+* mvn compile flyway:clean flyway:migrate flyway:info
+* mvn clean package
+* docker run --name="challenge" -p 8080:8080 code_challenge
+* curl -X POST http://192.168.59.103:8080/messages/names/leo0
+* check in the browser http://192.168.59.103:8080/messages/recent

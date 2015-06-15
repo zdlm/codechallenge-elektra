@@ -1,0 +1,20 @@
+# Build products and artifacts
+*.html
+.m2-repository/
+target/
+pom.xml.versionsBackup
+
+# Stuff from various IDE's and editors
+*.iml
+*~
+.idea/*
+<<<<<<< HEAD
+code-challenge/.idea/*
+=======
+.code-challenge/idea/*
+>>>>>>> ebece01... for merge
+*.ipr
+*.iws
+
+# Mac OS X Finder
+.DS_Store
