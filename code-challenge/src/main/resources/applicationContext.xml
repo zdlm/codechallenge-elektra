@@ -19,8 +19,4 @@
     <bean id="contentDao" class="com.tradeshift.dao.ContentDaoImpl"/>
     <bean id="contentService" class="com.tradeshift.services.ContentServiceImpl"/>
     <bean id="messageService" class="com.tradeshift.services.MessageServiceImpl"/>
-<<<<<<< HEAD
 </beans>
-=======
-</beans>
->>>>>>> 63371d4... 2nd iteration
