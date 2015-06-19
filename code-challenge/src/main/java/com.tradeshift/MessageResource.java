@@ -19,10 +19,17 @@ public class MessageResource {
     @Autowired
     private MessageService messageService;
 
+    public MessageResource() {
+    }
+
+    public MessageResource(MessageService messageService) {
+        this.messageService = messageService;
+    }
+
     @POST
     @Path("/names/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Message showName(@PathParam("name") String name) {
+    public Message saveName(@PathParam("name") String name) {
         return messageService.saveMessage(name);
     }
 
