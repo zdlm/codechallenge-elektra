@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .content(ng-controller="listCtrl")
+    .message-container
+      .content-container(ng-repeat='message in messages') {{message.message.content}}
+    textarea(class='message-input' rows='5' ng-model='content')
+    button(class='message-send' ng-click='postData()') post
