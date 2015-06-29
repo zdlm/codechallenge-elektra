@@ -62,3 +62,7 @@ The following requirements also have to be met:
 * docker run --name="challenge" -p 8080:8080 code_challenge
 * curl -X POST http://192.168.59.103:8080/messages/names/leo0
 * check in the browser http://192.168.59.103:8080/messages/recent
+* cd codechallenge-elektra/challenge-chat
+* docker build -t nodejs .
+* docker run --name="nodejs" -p 3000:3000 nodejs
+* check in the browser http://192.168.59.103:3000
