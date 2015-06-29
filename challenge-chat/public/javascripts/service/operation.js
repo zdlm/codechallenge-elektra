@@ -12,7 +12,7 @@ module.exports = function($http) {
             if(!url || !content){
                 return null;
             }
-                return $http.post(url, {content: content});
+            return $http.post(url, {content: content});
         }
 
     }

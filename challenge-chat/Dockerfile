@@ -17,4 +17,20 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 	&& npm install -g npm@"$NPM_VERSION" \
 	&& npm cache clear
 
-CMD [ "node" ]
+ADD bin /home/challenge-chat/bin
+ADD public /home/challenge-chat/public
+ADD node_modules /home/challenge-chat/node_modules
+ADD routes /home/challenge-chat/routes
+ADD spec /home/challenge-chat/spec
+ADD views /home/challenge-chat/views
+ADD app.js /home/challenge-chat/app.js
+ADD constants.js /home/challenge-chat/constants.js
+ADD gruntFile.js /home/challenge-chat/gruntFile.js
+ADD package.json /home/challenge-chat/package.json
+ADD run.sh home/challenge-chat/run.sh
+
+EXPOSE 3000
+
+RUN chmod 777 /home/challenge-chat/run.sh
+
+ENTRYPOINT /home/challenge-chat/run.sh

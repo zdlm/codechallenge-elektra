@@ -43,3 +43,5 @@ challenge-chat/node_modules
 
 # Users Environment Variables
 challenge-chat/.lock-wscript
+
+challenge-chat/public/javascripts/main.js

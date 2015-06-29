@@ -3,6 +3,7 @@ var router = express.Router();
 // var dataPath = require("../constants").PATHS;
 var http = require('http');
 var socketio = require("socket.io");
+var constants = require("../constants");
 
 router.socket = null;
 router.socketServer = function(server){
@@ -11,7 +12,7 @@ router.socketServer = function(server){
 
 
 //register routes
-//all the routs should be prefixed with /api
+//all the routes should be prefixed with /api
 router.get('/', function(req, res, next) {
   res.send('api coming');
 });
@@ -23,7 +24,7 @@ router.route('/message')
         }
         var content = req.body.content;
         var options = {
-            host:'192.168.59.103',
+            host:constants.JAVA_HOST,
             path:'/messages/names/' + content,
             port:'8080',
             method:'POST'
@@ -47,7 +48,7 @@ router.route('/message')
     })
     .get(function(req,res){
         var options = {
-            host:'192.168.59.103',
+            host:constants.JAVA_HOST,
             path:'/messages/recent',
             port:'8080'
         };
