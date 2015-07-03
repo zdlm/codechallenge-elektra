@@ -4,7 +4,6 @@ import com.tradeshift.model.Content;
 import com.tradeshift.model.Message;
 import com.tradeshift.model.Result;
 import com.tradeshift.services.MessageService;
-import com.tradeshift.services.MessageServiceImpl;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -31,12 +30,11 @@ public class MessageResourceTest {
 
     @BeforeClass
     public static void SetUp(){
-        messageService = mock(MessageServiceImpl.class);
+        messageService = mock(MessageService.class);
 
         content = new Content();
         content.setContent("test");
-        message = new Message();
-        message.setMessage(content);
+        message = new Message(content);
 
         result = new Result();
         result.setMessageCount(1);

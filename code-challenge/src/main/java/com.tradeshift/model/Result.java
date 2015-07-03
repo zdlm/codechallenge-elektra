@@ -2,9 +2,6 @@ package com.tradeshift.model;
 
 import java.util.List;
 
-/**
- * Created by zhangleo on 16/06/15.
- */
 public class Result {
     private int messageCount;
 

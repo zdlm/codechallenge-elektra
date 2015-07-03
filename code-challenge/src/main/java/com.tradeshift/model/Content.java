@@ -1,8 +1,5 @@
 package com.tradeshift.model;
 
-/**
- * Created by zhangleo on 16/06/15.
- */
 public class Content {
 
     private String content;

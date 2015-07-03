@@ -4,8 +4,7 @@ import com.tradeshift.model.Content;
 import com.tradeshift.model.Message;
 import com.tradeshift.model.Result;
 import com.tradeshift.services.ContentService;
-import com.tradeshift.services.ContentServiceImpl;
-import com.tradeshift.services.MessageServiceImpl;
+import com.tradeshift.services.MessageService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -28,23 +27,18 @@ public class MessageServiceTest {
     private static ContentService contentService;
 
     @InjectMocks
-    MessageServiceImpl messageService = new MessageServiceImpl(contentService);
+    MessageService messageService = new MessageService(contentService);
 
 
     @BeforeClass
     public static void SetUp() {
-        contentService = mock(ContentServiceImpl.class);
+        contentService = mock(ContentService.class);
 
         Content content = new Content();
         content.setContent("test");
 
-        com.tradeshift.domain.Content content1 = new com.tradeshift.domain.Content();
-        content1.setContent("test1");
-        content1.setDate_added(new Date());
-
-        com.tradeshift.domain.Content content2 = new com.tradeshift.domain.Content();
-        content2.setContent("test2");
-        content2.setDate_added(new Date());
+        com.tradeshift.domain.Content content1 = new com.tradeshift.domain.Content("test1",new Date());
+        com.tradeshift.domain.Content content2 = new com.tradeshift.domain.Content("test2",new Date());
 
         when(contentService.insertData(content)).thenReturn(1);
         when(contentService.getContentList()).thenReturn(Arrays.asList(content1, content2));

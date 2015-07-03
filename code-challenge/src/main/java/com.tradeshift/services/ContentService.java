@@ -1,18 +1,33 @@
 package com.tradeshift.services;
 
-import com.tradeshift.model.Content;
+import com.tradeshift.dao.ContentDao;
+import com.tradeshift.domain.Content;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-/**
- * Created by zhangleo on 16/06/15.
- */
-public interface ContentService {
+public class ContentService {
 
-    public int insertData(Content content);
+    @Autowired
+    public ContentDao contentDao;
 
-    public List<com.tradeshift.domain.Content> getContentList();
+    public ContentService() {
+    }
 
-    public int count();
+    public ContentService(ContentDao contentDao) {
+        this.contentDao = contentDao;
+    }
 
+    public int insertData(com.tradeshift.model.Content content) {
+        Content newCondtent = new Content(content.getContent());
+        return contentDao.insertData(newCondtent);
+    }
+
+    public List<Content> getContentList() {
+        return contentDao.getContentList();
+    }
+
+    public int count() {
+        return contentDao.count();
+    }
 }

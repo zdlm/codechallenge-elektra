@@ -1,9 +1,8 @@
 package com.tradeshift;
 
 import com.tradeshift.dao.ContentDao;
-import com.tradeshift.dao.ContentDaoImpl;
 import com.tradeshift.domain.Content;
-import com.tradeshift.services.ContentServiceImpl;
+import com.tradeshift.services.ContentService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -28,18 +27,13 @@ public class ContentServiceTest {
     private static Content content2;
 
     @InjectMocks
-    ContentServiceImpl contentService = new ContentServiceImpl(mockedContentDao);
+    ContentService contentService = new ContentService(mockedContentDao);
 
     @BeforeClass
     public static void SetUp() {
-        mockedContentDao = mock(ContentDaoImpl.class);
-        content1 = new Content();
-        content1.setContent("content test 1");
-        content1.setDate_added(new Date());
-
-        content2 = new Content();
-        content2.setContent("content test 2");
-        content2.setDate_added(new Date());
+        mockedContentDao = mock(ContentDao.class);
+        content1 = new Content("content test 1",new Date());
+        content2 = new Content("content test 2",new Date());
 
         when(mockedContentDao.insertData(content1)).thenReturn(0);
         when(mockedContentDao.getContentList()).thenReturn(Arrays.asList(content1, content2));

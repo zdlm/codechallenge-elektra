@@ -8,10 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-/**
- * Created by zhangleo on 09/06/15.
- */
-
 
 @Path("/messages")
 public class MessageResource {
